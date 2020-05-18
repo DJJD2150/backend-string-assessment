@@ -4,7 +4,7 @@ Kenzie assignment: String2
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = "DJJD2150"
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -23,9 +23,14 @@ __author__ = "???"
 
 
 def verbing(s):
-    # your code here
-    return
-
+    if len(s) >= 3:
+        if s[-3:] == "ing":
+            new_string = s + "ly"
+        else:
+            new_string = s + "ing"
+    elif len(s) < 3:
+        new_string = s
+    return new_string
 
 # E. not_bad
 # Given a string, find the first occurrence of the substrings
@@ -37,8 +42,12 @@ def verbing(s):
 
 
 def not_bad(s):
-    # your code here
-    return
+    if "not" in s and "bad" in s:
+        not_s = s.find("not")
+        bad_s = s.find("bad")
+        if bad_s > not_s:
+            s = s.replace(s[not_s:bad_s + 3], "good")
+    return s
 
 
 # F. front_back
@@ -52,8 +61,20 @@ def not_bad(s):
 
 
 def front_back(a, b):
-    # your code here
-    return
+    if len(a) % 2 == 1:
+        a_front = a[:(len(a)//2 + 1)]
+        a_back = a[(len(a)//2 + 1):]
+    elif len(a) % 2 == 0:
+        a_front = a[:(len(a)//2)]
+        a_back = a[(len(a)//2):]
+    if len(b) % 2 == 1:
+        b_front = b[:(len(b)//2 + 1)]
+        b_back = b[(len(b)//2 + 1):]
+    elif len(b) % 2 == 0:
+        b_front = b[:(len(b)//2)]
+        b_back = b[(len(b)//2):]
+    c = a_front + b_front + a_back + b_back
+    return c
 
 
 # Provided simple test() function used in main() to print
