@@ -4,7 +4,7 @@ Kenzie assignment: String1
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = "DJJD2150, Mike A., Kano"
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -26,11 +26,13 @@ __author__ = "???"
 #   donuts(5) returns 'Number of donuts: 5'
 #   donuts(23) returns 'Number of donuts: many'
 
-
 def donuts(count):
-    # your code here
-    return
-
+    donut_string = 'Number of donuts: '
+    if count >= 10:
+        donut_string += 'many'
+    elif count < 10:
+        donut_string += str(count)
+    return donut_string
 
 # B. both_ends
 # Given a string s, return a string made of the first 2
@@ -40,11 +42,14 @@ def donuts(count):
 # Example:
 #   'spring' -> 'spng'
 
-
 def both_ends(s):
-    # your code here
-    return
-
+    first_chars = s[:2]
+    last_chars = s[-2:]
+    if len(s) >= 2:        
+        new_string = first_chars + last_chars
+    elif len(s) < 2:
+        new_string = ""
+    return new_string
 
 # C. fix_start
 # Given a string s, return a string where all occurrences
@@ -56,11 +61,10 @@ def both_ends(s):
 # Hint: s.replace(stra, strb) returns a version of string s
 # where all instances of stra have been replaced by strb.
 
-
 def fix_start(s):
-    # your code here
-    return
-
+    first_letter = s[0]
+    asterisk_string = s[0] + s[1:].replace(first_letter, "*")
+    return asterisk_string
 
 # D. mix_up
 # Given strings a and b, return a single string with a and
@@ -71,11 +75,10 @@ def fix_start(s):
 #   'dog', 'dinner' -> 'dig donner'
 # Assume a and b are length 2 or more.
 
-
 def mix_up(a, b):
-    # your code here
-    return
-
+    # 'mix pod'
+    c = b[0:2] + a[2:] + " " + a[0:2] + b[2:]
+    return c
 
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
